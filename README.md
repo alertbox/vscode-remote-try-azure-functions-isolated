@@ -17,7 +17,8 @@ func new -t "HTTP trigger" -n Goodbye --authlevel "anonymous"
 
 ```bash
 # Add dependencies
-dotnet add package Microsoft.Azure.Functions.Extensions Microsoft.Extensions.Http
+dotnet add package Microsoft.Azure.Functions.Extensions 
+dotnet add package Microsoft.Extensions.Http -v 3.1.10
 ```
 
 ```bash

@@ -52,6 +52,7 @@
             "command": "func",
             "args": ["host", "start", "--useHttps"],
             "type": "process",
+            "dependsOn": "build",
             "problemMatcher": "$func-dotnet-watch",
             "options": {
                 "cwd": "${workspaceFolder}/Greeter/bin/Debug/netcoreapp3.1"
