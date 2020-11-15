@@ -1,4 +1,4 @@
-# Try out Azure Functions (.NET)
+# Try out Azure Functions (C#)
 
 Develop in .NET Core 3.1, includes minimal required set up to get started with dependency injection. In case you were wondering, this `.devcontainer` is:
 
