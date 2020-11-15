@@ -7,13 +7,21 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace Greeter
 {
-    public static class Goodbye
+    public class Goodbye
     {
+        private readonly HttpClient https;
+        
+        public Goodbye(HttpClient http)
+        {
+            https = http;
+        }
+
         [FunctionName("goodbye")]
-        public static async Task<IActionResult> Run(
+        public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
