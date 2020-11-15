@@ -2,7 +2,7 @@ GET https://localhost:7071/api/hello/?name=Angry%20Haslett HTTP/1.1
 
 ###
 
-POST http://localhost:7071/api/hello HTTP/1.1
+POST https://localhost:7071/api/hello HTTP/1.1
 Content-Type: application/json
 
 {
