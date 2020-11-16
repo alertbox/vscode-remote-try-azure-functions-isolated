@@ -22,6 +22,11 @@ dotnet add package Microsoft.Extensions.Http -v 3.1.10
 ```
 
 ```bash
+dotnet new sln -n Greeter
+dotnet sln add Greeter/
+```
+
+```bash
 # Build and run locally
 func host start --useHttps
 ```
