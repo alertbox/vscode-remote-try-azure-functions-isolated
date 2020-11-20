@@ -1,0 +1,21 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+
+# trigger:
+# - master
+
+pr:
+  branches:
+    include:
+    - master
+  paths:
+    exclude:
+    - README.md
+
+pool:
+      vmImage: 'ubuntu-latest'
+      
+steps:
+
+# Add steps that build, run tests, deploy, and more:
+# https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-azure-devops?tabs=csharp
