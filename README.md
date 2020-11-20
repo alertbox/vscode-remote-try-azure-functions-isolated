@@ -31,10 +31,20 @@ dotnet sln add Greeter/
 func host start --useHttps
 ```
 
+```bash
+# Publish using Zip deployment
+dotnet build --configuration Release
+dotnet publish --configuration Release --output .publish
+# az functionapp deployment source config-zip -g <resource-group-name> -n <functionapp-name> --src .publish/drop.zip
+az functionapp deployment source config-zip -g az-funcs-sandbox -n vscode-remote-try-azure-functions --src .publish/drop.zip
+```
+
 ## Configuration Options
 
 - [The VS Code Remote - Containers docs][vscode-remote-docs] is a good source to learn more about `.devcontainer.json` configuration options and its usage.
 - [See .NET Core CLI page][dotnet-core-cli-docs] to learn the full-blown `dotnet` options.
+- [Use local Azure Storage emulator in Remote Containers.][storage-emulator-connect-vscode-remote]
+- [See continuous delivery by using Azure DevOps][ci-azure-pipelines-docs] page to learn the YAML scripts.
 
 [devcontainers-repo]: https://github.com/microsoft/vscode-dev-containers
 [dotnet-sdk-docker-image]: https://hub.docker.com/_/microsoft-dotnet-sdk/
@@ -42,3 +52,5 @@ func host start --useHttps
 [node-js-docs]: https://nodejs.dev/learn
 [vscode-remote-docs]: https://code.visualstudio.com/docs/remote/containers
 [dotnet-core-cli-docs]: https://docs.microsoft.com/en-us/dotnet/core/tools/
+[storage-emulator-connect-vscode-remote]: https://www.maneu.net/blog/use-local-storage-emulator-remote-container/
+[ci-azure-pipelines-docs]: https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-azure-devops?tabs=csharp
