@@ -26,7 +26,7 @@ steps:
   inputs:
     command: publish
     arguments: '--configuration Release --output publish_output'
-    projects: '*.csproj'
+    projects: 'Greeter/*.csproj'
     publishWebProjects: false
     modifyOutputPath: false
     zipAfterPublish: false
@@ -37,6 +37,7 @@ steps:
     includeRootFolder: false
     archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
 - task: PublishBuildArtifacts@1
+  displayName: 'Publish artifacts'
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
     artifactName: 'drop'
