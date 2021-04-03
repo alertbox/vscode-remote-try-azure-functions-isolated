@@ -8,7 +8,11 @@
 
     // Set *default* container specific settings.json values on container create.
     "settings": {
-        "terminal.integrated.shell.linux": "/bin/zsh"
+        "terminal.integrated.shell.linux": "/bin/zsh",
+        "azureFunctions.projectLanguage": "C#",
+        "azureFunctions.projectRuntime": "~3",
+        "debug.internalConsoleOptions": "neverOpen",
+        "azureFunctions.preDeployTask": "publish",
     },
 
     // Add the IDs of extensions you want installed when the container is created.
