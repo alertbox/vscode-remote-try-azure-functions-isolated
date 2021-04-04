@@ -8,7 +8,7 @@
 
     // Set *default* container specific settings.json values on container create.
     "settings": {
-        "terminal.integrated.shell.linux": "/bin/zsh",
+        "terminal.integrated.shell.linux": "/usr/bin/zsh",
         "azureFunctions.projectLanguage": "C#",
         "azureFunctions.projectRuntime": "~3",
         "debug.internalConsoleOptions": "neverOpen",
