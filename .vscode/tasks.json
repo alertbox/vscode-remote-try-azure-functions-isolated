@@ -43,7 +43,7 @@
             "dependsOn": "build",
             "problemMatcher": "$func-dotnet-watch",
             "options": {
-                "cwd": "${workspaceFolder}/Greeter/bin/Debug/netcoreapp3.1"
+                "cwd": "${workspaceFolder}/bin/Debug/netcoreapp3.1"
             },
             "isBackground": true
         },
