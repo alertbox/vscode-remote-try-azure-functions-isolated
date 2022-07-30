@@ -19,6 +19,7 @@ This template repo serves as a flavor of quick-starter to develop [Azure Functio
 - Docker CLI with Compose v2
 
 [az-funcs-isolated-doc]: https://
+
 [az-funcs-isolated-quickstart]: https://docs.microsoft.com/en-us/azure/azure-functions/create-first-function-cli-csharp?tabs=azure-cli%2Cisolated-process
 [aspnet-webapi-quickstart]: https://
 
