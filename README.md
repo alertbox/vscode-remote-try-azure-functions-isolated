@@ -1,10 +1,76 @@
-# Try out Azure Functions (C#)
+# Azure Functions .NET (Isolated)
+[<img align="right" alt="Azure Functions and .NET in isolated mode" width="128rem" src="https://raw.githubusercontent.com/Azure/azure-functions-core-tools/master/src/Azure.Functions.Cli/npm/assets/azure-functions-logo-color-raster.png" />][az-funcs-isolated-docs]
 
-Develop in .NET Core 3.1, includes minimal required set up to get started with dependency injection. In case you were wondering, this `.devcontainer` is:
+This template repo serves as a flavor of quick-starter to develop [Azure Functions (Isolated)][az-funcs-isolated-quickstart] and [.NET apps and services][aspnet-webapi-quickstart] in C#.
 
-- Based on `azure-functions-dotnetcore-3.1` development container found in [@microsoft/vscode-dev-containers][devcontainers-repo]
-- Ideal for serverless microservices development with Azure Functions in .NET Core 3.1, and
-- Include Azure Storage support for local development using Azurite emulator.
+> If you already have a [dev container][gh-codespaces-quickstart], you can jump to the [Things to try](#things-to-try) section.
+
+### What's in it:
+
+- Azure Functions v4 and Core Tools latest binaries
+  > [Learn more about isolated vs in-proc functions][az-funcs-implementations-docs]
+- .NET 6.0 SDK and Runtime
+- Azure CLI for publishing and managing cloud resources
+- [GitHub Codespaces][gh-codespaces-docs] and [VS Code Remote - Containers][vscode-dev-containers-docs]
+- [VS Code Extensions](/.devcontainer/devcontainer.json) for .NET and Azure-related work
+- [VS Code Tasks](/.vscode/tasks.json) to build, launch, and run from source
+- Git and GitHub CLI for versioning
+- ZSH integrated Terminal for shell scripting
+- Docker CLI with Compose v2
+
+[az-funcs-isolated-doc]: https://
+[az-funcs-isolated-quickstart]: https://docs.microsoft.com/en-us/azure/azure-functions/create-first-function-cli-csharp?tabs=azure-cli%2Cisolated-process
+[aspnet-webapi-quickstart]: https://
+
+[awesome-list-bun]: https://github.com/apvarun/awesome-bun#videos
+
+[gh-codespaces-quickstart]: https://docs.github.com/en/codespaces/getting-started/quickstart
+[gh-codespaces-docs]: https://docs.github.com/en/codespaces
+[vscode-dev-containers-docs]: https://code.visualstudio.com/docs/remote/remote-overview
+
+## Using This Template
+
+Using this repo is easy as cloning the repo. Just click on [Use this template][gh-use-this] and you are good to go.
+
+[gh-use-this]: https://github.com/kosalanuwan/vscode-remote-try-bun/generate
+
+[az-funcs-docs]: https://docs.microsoft.com/en-us/azure/azure-functions/create-first-function-cli-csharp?tabs=azure-cli%2Cbrowser
+[az-serverless-video-series]: https://www.youtube.com/playlist?list=PLlrxD0HtieHjU-gOB3ifnFaqikI2kGxUW
+[az-funcs-implementations-docs]: https://docs.microsoft.com/en-us/azure/azure-functions/dotnet-isolated-process-guide#differences-with-net-class-library-functions
+[azurite-docs]: https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azurite#install-and-run-the-azurite-docker-image
+[vscode-tasks]: .vscode/tasks.json
+
+## Build and Run
+With VS Code:
+- `local.settings.json`: Change connection strings, create a [local settings file][az-funcs-docs-local-settings] if doesn't exists.
+- `tasks.json`: Change the start up project path in `func start` task.
+- Run task: `func start` to run the azure function in watch mode.
+
+[az-funcs-docs-local-settings]: https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=csharp#local-settings-file
+
+### Debugging the source
+VS Code is configured to prompt the processor to attach when debugging the code.
+```json
+// launch.json
+"processId": "${command:pickProcess}"
+```
+
+### Connecting to local emulator
+Replace the local connection string as below, [if the emulator is running locally][article-tip-connect-local-emulator]:
+```json
+// local.settings.json
+"UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://host.docker.internal"
+```
+
+[article-tip-connect-local-emulator]: https://www.maneu.net/blog/use-local-storage-emulator-remote-container/
+
+## License
+
+Copyright :copyright: Kosala Nuwan Perera. All rights reserved.
+
+The source code is license under the [MIT license][lic].
+
+[lic]: ../LICENSE
 
 ## Useful Commands
 

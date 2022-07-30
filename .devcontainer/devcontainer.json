@@ -70,7 +70,7 @@
 
 				"azureFunctions.projectLanguage": "C#",
 				"azureFunctions.projectRuntime": "~4",
-				"azureFunctions.preDeployTask": "publish",
+				// "azureFunctions.preDeployTask": "publish",
 
                 "omnisharp.enableAsyncCompletion": true,
                 "omnisharp.enableImportCompletion": true,
