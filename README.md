@@ -45,76 +45,94 @@ First, you want to ensure source code is Reopened in Container. Then you'll be a
 
 With VS Code:
 
-- Open a new Terminal
-- Type `az --version` to verify which version is been installed and the Azure CLI works
-- Type `func --version` to verify which version is been installed and the  Functions Core Tools work
-- Type `dotnet --version` to verify which version is been installed and the `dotnet` CLI works
+1. In a terminal, run `func --version` to verify Azure Functions Core Tool are version 4.x.
+2. Run `dotnet --list-sdks` to verify required versions are installed.
+3. Run `az --version` to verify Azure CLI version is 2.4 or above.
 
 
 
-### Useful Commands
+### Create a functions project
 
-```bash
-# Create function apps
-func init Greeter --dotnet && cd Greeter
-func new -t "HTTP trigger" -n Hello --authlevel "anonymous"
-func new -t "HTTP trigger" -n Goodbye --authlevel "anonymous"
-```
+Next, you would want to create a serverless app, say, a functions app `test-project` that response to an HTTP trigger.
 
-```bash
-# Add dependencies
-dotnet add package Microsoft.Azure.Functions.Extensions 
-dotnet add package Microsoft.Extensions.Http -v 3.1.10
-```
+With VS Code:
 
-```bash
-dotnet new sln -n Greeter
-dotnet sln add Greeter/
-```
+1. Run the `func init` command to create a functions project with specific runtime.
 
-```bash
-# Build and run locally
-func host start --useHttps
-```
+   ```bash
+   func init test-project \
+             worker-runtime dotnet-isolated \
+             target-framework net6.0 \
+             && cd test-project
+   ```
 
-```bash
-# Publish using Zip deployment
-dotnet build --configuration Release
-dotnet publish --configuration Release --output .publish
-# az functionapp deployment source config-zip -g <resource-group-name> -n <functionapp-name> --src .publish/drop.zip
-az functionapp deployment source config-zip -g az-funcs-sandbox -n vscode-remote-try-azure-functions --src .publish/drop.zip
-```
+2. Add a function to the project, say, `HttpExample` with HTTP trigger.
+
+   ```bash
+   func new -n HttpExample \
+            -t "HTTP trigger" \
+            --authlevel "anonymous"
+   ```
 
 
 
-### Configuration Options
+### Build and run from source
 
-- [The VS Code Remote - Containers docs][vscode-remote-docs] is a good source to learn more about `.devcontainer.json` configuration options and its usage.
-- [See .NET Core CLI page][dotnet-core-cli-docs] to learn the full-blown `dotnet` options.
-- [Use local Azure Storage emulator in Remote Containers.][storage-emulator-connect-vscode-remote]
-- [See continuous delivery by using Azure DevOps][ci-azure-pipelines-docs] page to learn the YAML scripts.
+VS Code is integrated with the Azure Functions Core Tools to run the functions app on the local development computer, in this case, its this dev container.
 
-[devcontainers-repo]: https://github.com/microsoft/vscode-dev-containers
-[dotnet-sdk-docker-image]: https://hub.docker.com/_/microsoft-dotnet-sdk/
-[azure-cli-docs]: https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli
-[node-js-docs]: https://nodejs.dev/learn
-[vscode-remote-docs]: https://code.visualstudio.com/docs/remote/containers
-[dotnet-core-cli-docs]: https://docs.microsoft.com/en-us/dotnet/core/tools/
+With VS Code:
+
+1. Press `F5` to start the functions app project and call the function. The terminal displays the output from the Core Tools.
+2. When the function executes locally, a notification is raised in VS Code to spin up your favorite browser.
+3. Press `Ctrl+C` to stop Core Tools and disconnect the debugger.
+
+
+
 [storage-emulator-connect-vscode-remote]: https://www.maneu.net/blog/use-local-storage-emulator-remote-container/
+
+
+
+### Publishing to Azure
+
+Before publishing the functions app to Azure, you want to create supporting resources for the function.
+
+1. Create an Azure account for free, if you haven't already.
+
+2. Run `az login` to sign into your Azure account, if you haven't already.
+
+3. Create a resource group, a general pupose storage account, and a functions app in Azure.
+
+4. When the resources are ready, deploy the functions app to Azure.
+
+   ```bash
+   # Publish using Zip deployment
+   dotnet build --configuration Release
+   dotnet publish --configuration Release --output .publish
+   # az functionapp deployment source config-zip -g <resource-group-name> -n <functionapp-name> --src .publish/drop.zip
+   az functionapp deployment source config-zip -g az-funcs-sandbox -n vscode-remote-try-azure-functions --src .publish/drop.zip
+   ```
+
+
+
 [ci-azure-pipelines-docs]: https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-azure-devops?tabs=csharp
 
 
 
-### Connecting to local emulator
+## Feedback
 
-Replace the local connection string as below, [if the azurite emulator is running locally][article-tip-connect-local-emulator]:
+If you have any technical problems with GitHub Codespaces or dev containers, you are better off asking [VS Code Support][feedback-channels] directly, since you'll end up getting a much faster response back that way.
 
-```json
-// local.settings.json
-"UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://host.docker.internal"
-```
+[feedback-channels]: https://github.com/microsoft/vscode-dev-containers#contributing-and-feedback
 
-[article-tip-connect-local-emulator]: https://www.maneu.net/blog/use-local-storage-emulator-remote-container/
+
+
+## Contributing
+
+The official repo to contribute would be [@microsoft/vscode-dev-containers][contrib-official-repo]. 
+
+Have a suggestion or a bug fix? Just open a pull request or an issue. Include the development container with clear and simplest instructions possible.
+
+[contrib-official-repo]: https://github.com/microsoft/vscode-dev-containers#readme
 
 
 
@@ -122,4 +140,4 @@ Replace the local connection string as below, [if the azurite emulator is runnin
 
 Copyright (c) Kosala Nuwan Perera. All rights reserved.
 
-The source code is license under the [MIT license][LICENSE].
+The source code is license under the [MIT license](LICENSE).
