@@ -128,7 +128,7 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
     // Fix for Omnisharp analyzer fail
     // Read more https://github.com/OmniSharp/omnisharp-vscode/issues/3143#issuecomment-513501863
-	// "postCreateCommand": "rm -rf **/obj/ **/bin/ && dotnet restore --no-cache --force",
+	"postCreateCommand": "zsh .devcontainer/post-create.zsh",
 	// "overrideCommand": false,
 
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
