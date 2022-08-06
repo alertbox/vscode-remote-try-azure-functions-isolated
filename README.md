@@ -58,16 +58,13 @@ Next, you would want to create a serverless app, say, a functions app `test-proj
 With VS Code:
 
 1. Run the `func init` command to create a functions project with specific runtime.
-
    ```bash
    func init test-project \
              --worker-runtime dotnet-isolated \
              --target-framework net6.0 \
              && cd test-project
    ```
-
 2. Add a function to the project, say, `HttpExample` with HTTP trigger.
-
    ```bash
    func new -n HttpExample \
             -t "HTTP trigger" \
@@ -98,13 +95,9 @@ With VS Code:
 Before publishing the functions app to Azure, you want to create supporting resources for the function.
 
 1. Create an Azure account for free, if you haven't already.
-
 2. Run `az login` to sign into your Azure account, if you haven't already.
-
 3. Create a resource group, a general pupose storage account, and a functions app in Azure.
-
 4. When the resources are ready, deploy the functions app to Azure.
-
    ```bash
    # Publish using Zip deployment
    dotnet build --configuration Release
