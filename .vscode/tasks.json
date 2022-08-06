@@ -4,17 +4,25 @@
         {
             "label": "clean",
             "command": "dotnet",
-            "args": ["clean", "/property:GenerateFullPaths=true", "/consoleloggerparameters:NoSummary"],
+            "args": [
+                "clean",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
             "options": {
                 "cwd": "${workspaceFolder}/test-project/"
             },
             "type": "process",
-            "problemMatcher": "$msCompile",
+            "problemMatcher": "$msCompile"
         },
         {
             "label": "build",
             "command": "dotnet",
-            "args": ["build", "/property:GenerateFullPaths=true", "/consoleloggerparameters:NoSummary"],
+            "args": [
+                "build",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
             "options": {
                 "cwd": "${workspaceFolder}/test-project/"
             },
@@ -24,18 +32,18 @@
                 "isDefault": true
             },
             "type": "process",
-            "problemMatcher": "$msCompile",
+            "problemMatcher": "$msCompile"
         },
         {
-            "command": "start",
-            "args": ["--useHttps"],
+            "label": "start",
+            "command": "start --port 7071 --useHttps",
             "options": {
                 "cwd": "${workspaceFolder}/test-project/bin/Debug/net6.0"
             },
             "dependsOn": "build",
-            "type":"func",
+            "type": "func",
             "problemMatcher": "$func-dotnet-watch",
             "isBackground": true
-        },
+        }
     ]
 }

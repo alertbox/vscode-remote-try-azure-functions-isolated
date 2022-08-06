@@ -51,13 +51,11 @@
 		// Configure properties specific to VS Code.
 		"vscode": {
 			"settings": {
-                "workbench.colorTheme": "Visual Studio 2019 Dark",
 				"terminal.integrated.defaultProfile.linux": "zsh",
                 "editor.formatOnPaste": true,
 
 				"editor.guides.bracketPairs": "active",
 
-                "scm.defaultViewMode": "tree",
                 "debug.internalConsoleOptions": "neverOpen",
 
 				"files.watcherExclude": {
@@ -86,8 +84,6 @@
 			},
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
-				"github.vscode-pull-request-github",
-
 				"visualstudioexptteam.vscodeintellicode",
 				"visualstudiotxptteam.vscodeintellicode-completions",
 				"ms-dotnettools.csharp",
