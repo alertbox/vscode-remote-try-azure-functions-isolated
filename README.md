@@ -61,8 +61,8 @@ With VS Code:
 
    ```bash
    func init test-project \
-             worker-runtime dotnet-isolated \
-             target-framework net6.0 \
+             --worker-runtime dotnet-isolated \
+             --target-framework net6.0 \
              && cd test-project
    ```
 
@@ -84,7 +84,8 @@ With VS Code:
 
 1. Press `F5` to start the functions app project and call the function. The terminal displays the output from the Core Tools.
 2. When the function executes locally, a notification is raised in VS Code to spin up your favorite browser.
-3. Press `Ctrl+C` to stop Core Tools and disconnect the debugger.
+3. Visit https://localhost:7071/api/httpexample
+4. Press `Ctrl+C` to stop Core Tools and disconnect the debugger.
 
 
 
@@ -128,7 +129,7 @@ If you have any technical problems with GitHub Codespaces or dev containers, you
 
 ## Contributing
 
-The official repo to contribute would be [@microsoft/vscode-dev-containers][contrib-official-repo]. 
+The official repo to contribute would be [@microsoft/vscode-dev-containers][contrib-official-repo].
 
 Have a suggestion or a bug fix? Just open a pull request or an issue. Include the development container with clear and simplest instructions possible.
 
